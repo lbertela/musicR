@@ -7,24 +7,21 @@ library(ggplot2)
 library(openxlsx)
 library(dplyr)
 library(shinythemes)
-library(data.table)
 library(reactable)
 library(htmltools)
-library(shinyWidgets)
 library(reactablefmtr)
 library(shinyjs)
 
-setwd("C:/Users/ludov/Saved Games/Documents/music_center")
-path <- "C:/Users/ludov/Saved Games/Documents/music_center"
+# Path and files to data
+path <- "C:/Users/ludov/Saved Games/Documents/GitHub/music_center/app"
 file <- "01_inventaire.xlsx"
 
-# Get the data
+# Load the data
 data <- read.xlsx(file.path(path, file), startRow = 2, rowNames = FALSE)
-setDT(data)
 
-# Change names
-names_orig <- names(data)
-setnames(data, names_orig, c("group", "album", "artist", "year", "genre", "price", "type", "cover", "location", "link"))
+# Change column names
+names(data) <- c("group", "album", "artist", "year", "genre", "price",
+                 "type", "cover", "location", "link")
 
 # Prepare data
 data <- data %>% 
@@ -34,12 +31,12 @@ data <- data %>%
      mutate(cover = gsub(".jpg", "", cover)) %>% 
      relocate(group, cover) 
 
-# Compute useful data
+# Save useful information
 min_year <- min(data$year, na.rm = TRUE)
 max_year <- max(data$year, na.rm = TRUE)
 max_price <- max(na.omit(data$price))
 
-# Table theme
+# Modify themes
 table_theme <- slate(font_color = "#FFFFFF",
       header_font_color = "#FFFFFF",
       header_font_size = 20,
