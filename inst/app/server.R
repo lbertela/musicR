@@ -15,12 +15,12 @@ server <- function(input, output, session) {
      
      output$musictable <- renderReactable(
           
-          reactable(data = prepare_data(data = data,
+          reactable(data = prepare_data(data = inventory,
                                         filter_date = input$slider_date,
                                         filter_price = input$slider_price,
                                         filter_location = input$checkbox,
                                         filter_group = input$filter_group,
-                                        filter_artist = input$filter_artis,
+                                        filter_artist = input$filter_artist,
                                         filter_album = input$filter_album,
                                         filter_genre = input$filter_genre,
                                         filter_type = input$filter_type),
@@ -49,7 +49,7 @@ server <- function(input, output, session) {
                                         width = 80,
                                         cell = function(value,index){
                                              htmltools::a(
-                                                  href=data$link[index],
+                                                  href=inventory$link[index],
                                                   target="_blank",
                                                   htmltools::img(src=sprintf("%s.jpg", value),
                                                                  style = "height: 50px;",
@@ -67,7 +67,7 @@ server <- function(input, output, session) {
                     searchable = FALSE,
                     defaultPageSize = 10,
                     showSortIcon = TRUE,
-                    pageSizeOptions = c(5, 10, 15, 20, nrow(data)),
+                    pageSizeOptions = c(5, 10, 15, 20, nrow(inventory)),
                     showPageSizeOptions = TRUE,
                     theme = table_theme,
                     height = 735,
@@ -78,7 +78,7 @@ server <- function(input, output, session) {
      
      output$histo1 <- renderPlot({
           
-          dt_plot <- as.data.frame(table(data$type)) %>% 
+          dt_plot <- as.data.frame(table(inventory$type)) %>% 
                dplyr::rename(group = Var1) %>% 
                dplyr::rename(value = Freq) %>%
                mutate(group = forcats::fct_reorder(group, value))
@@ -104,7 +104,7 @@ server <- function(input, output, session) {
      
      output$histo2 <- renderPlot({
           
-          dt_plot <- data.frame(price = data$price)
+          dt_plot <- data.frame(price = inventory$price)
           
           p <- ggplot(dt_plot, aes(x=price)) +
                geom_histogram(binwidth=5, colour="black", fill="#f68060", 
@@ -129,7 +129,7 @@ server <- function(input, output, session) {
      
      output$histo3 <- renderPlot({
           
-          dt_plot <- as.data.frame(table(data$genre)) %>% 
+          dt_plot <- as.data.frame(table(inventory$genre)) %>% 
                dplyr::rename(group = Var1) %>% 
                dplyr::rename(value = Freq) %>%
                mutate(group = forcats::fct_reorder(group, value))
@@ -156,7 +156,7 @@ server <- function(input, output, session) {
      
      output$histo4 <- renderPlot({
           
-          dt_plot <- data.frame(year = data$year)
+          dt_plot <- data.frame(year = inventory$year)
           
           p <- ggplot(dt_plot, aes(x=year)) +
                geom_histogram(binwidth=3, colour="black", fill="#f68060", 

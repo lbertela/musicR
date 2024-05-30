@@ -1,3 +1,10 @@
+library(rsconnect)
+library(htmltools)
+library(shinyWidgets)
+library(shinyjs)
+
+devtools::load_all()
+
 # Define UI
 ui <- navbarPage(
      strong("Music Center"),
@@ -21,35 +28,35 @@ ui <- navbarPage(
                              h3(strong("Filtres")),
                              selectInput(inputId = "filter_group", 
                                          label = "Sélectionner groupes", 
-                                         choices = sort(data$group), 
+                                         choices = sort(inventory$group), 
                                          selected = NULL,
                                          selectize = TRUE,
                                          multiple = TRUE
                              ),
                              selectInput(inputId = "filter_album", 
                                          label = "Sélectionner albums", 
-                                         choices = sort(data$album), 
+                                         choices = sort(inventory$album), 
                                          selected = NULL,
                                          selectize = TRUE,
                                          multiple = TRUE
                              ),
                              selectInput(inputId = "filter_artist", 
                                          label = "Sélectionner artistes", 
-                                         choices = sort(data$artist), 
+                                         choices = sort(inventory$artist), 
                                          selected = NULL,
                                          selectize = TRUE,
                                          multiple = TRUE
                              ),
                              selectInput(inputId = "filter_genre", 
                                          label = "Sélectionner genres", 
-                                         choices = sort(data$genre), 
+                                         choices = sort(inventory$genre), 
                                          selected = NULL,
                                          selectize = TRUE,
                                          multiple = TRUE
                              ),
                              selectInput(inputId = "filter_type", 
                                          label = "Sélectionner supports", 
-                                         choices = sort(data$type), 
+                                         choices = sort(inventory$type), 
                                          selected = NULL,
                                          selectize = TRUE,
                                          multiple = TRUE
@@ -88,9 +95,9 @@ ui <- navbarPage(
                         ),
                         # Output
                         mainPanel(
-                             div(paste0("Groupes uniques : ", length(unique(data$group))), style = "color:white;font-size:20px"),
-                             div(paste0("Albums uniques : ", length(unique(data$album))), style = "color:white;font-size:20px"),
-                             div(paste0("Valeur totale : ", format(sum((data$price), na.rm = TRUE), big.mark = "'"), " CHF"), style = "color:white;font-size:20px"), br(),
+                             div(paste0("Groupes uniques : ", length(unique(inventory$group))), style = "color:white;font-size:20px"),
+                             div(paste0("Albums uniques : ", length(unique(inventory$album))), style = "color:white;font-size:20px"),
+                             div(paste0("Valeur totale : ", format(sum((inventory$price), na.rm = TRUE), big.mark = "'"), " CHF"), style = "color:white;font-size:20px"), br(),
                              
                              reactableOutput(outputId = "musictable")
                         )

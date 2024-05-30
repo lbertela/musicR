@@ -15,14 +15,14 @@
 #'
 #' @examples
 prepare_data <- function(data,
-                        filter_date,
-                        filter_price,
-                        filter_location,
-                        filter_group,
-                        filter_artist,
-                        filter_album,
-                        filter_genre,
-                        filter_type) {
+                         filter_date,
+                         filter_price,
+                         filter_location,
+                         filter_group,
+                         filter_artist,
+                         filter_album,
+                         filter_genre,
+                         filter_type) {
      
      data <-  data %>% 
           filter(year >= filter_date[1] & year <= filter_date[2],
