@@ -3,8 +3,8 @@ Sys.setenv(LANG = "en")
 
 # Set Paths and files
 path_onedrive <- "C:/Users/ludov/OneDrive/Inventaire Vinyle et CD/"
-path_jpg <- "C:/Users/ludov/Saved Games/Documents/GitHub/music_center/app/www"
-path_xlsx <- "C:/Users/ludov/Saved Games/Documents/GitHub/music_center/app"
+path_jpg <- "C:/Users/ludov/Saved Games/Documents/GitHub/music_center/script/www"
+path_xlsx <- "C:/Users/ludov/Saved Games/Documents/GitHub/music_center/data"
 
 files <- list.files(path = path_onedrive)
 
