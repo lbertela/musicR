@@ -1,4 +1,4 @@
-filter_data <- function(data,
+prepare_data <- function(data,
                         filter_date,
                         filter_price,
                         filter_location,

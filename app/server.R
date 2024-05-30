@@ -15,7 +15,7 @@ server <- function(input, output, session) {
      
      output$musictable <- renderReactable(
           
-          reactable(data = filter_data(data = data,
+          reactable(data = prepare_data(data = data,
                                         filter_date = input$slider_date,
                                         filter_price = input$slider_price,
                                         filter_location = input$checkbox,
