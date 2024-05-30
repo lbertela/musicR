@@ -8,7 +8,7 @@ library(shinyWidgets)
 library(shinyjs)
 devtools::load_all()
 
-setwd("app")
+#setwd("app")
 file <- "data/01_inventaire.xlsx"
 
 # Get the data

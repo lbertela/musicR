@@ -1,10 +1,10 @@
+## code to prepare `inventory` dataset goes here
 rm(list=ls())
 Sys.setenv(LANG = "en")
 
 # Set Paths and files
 path_onedrive <- "C:/Users/ludov/OneDrive/Inventaire Vinyle et CD/"
-path_jpg <- "C:/Users/ludov/Saved Games/Documents/GitHub/music_center/script/www"
-path_xlsx <- "C:/Users/ludov/Saved Games/Documents/GitHub/music_center/data"
+path_www <- "app/www"
 
 files <- list.files(path = path_onedrive)
 
@@ -15,12 +15,11 @@ xlsx_file <- files[grepl(".xlsx", files)]
 # Save each .jpg file
 for(file in jpg_files) {
      file.copy(from = file.path(path_onedrive, file),
-               to = path_jpg,
+               to = path_www,
                overwrite = TRUE)
 }
 
 # Save the .xlsx database
-file.copy(from = file.path(path_onedrive, xlsx_file),
-          to = path_xlsx,
-          overwrite = TRUE)
+inventory <- openxlsx::read.xlsx(file.path(path_onedrive, xlsx_file))
 
+usethis::use_data(inventory, overwrite = TRUE)

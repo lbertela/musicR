@@ -19,11 +19,11 @@ server <- function(input, output, session) {
                                         filter_date = input$slider_date,
                                         filter_price = input$slider_price,
                                         filter_location = input$checkbox,
-                                        filter_group = input_filter_group,
-                                        filter_artist = input_filter_artis,
-                                        filter_album = input_filter_album,
-                                        filter_genre = input_filter_genre,
-                                        filter_type = input_filter_type),
+                                        filter_group = input$filter_group,
+                                        filter_artist = input$filter_artis,
+                                        filter_album = input$filter_album,
+                                        filter_genre = input$filter_genre,
+                                        filter_type = input$filter_type),
                          
                     defaultColDef = colDef(
                          vAlign = "center",
