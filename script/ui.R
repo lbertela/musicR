@@ -4,7 +4,7 @@ ui <- navbarPage(
      tabPanel("Tableau",
               fluidPage(
                    useShinyjs(),
-                   theme = shinytheme("slate"),
+                   theme = shinythemes::shinytheme("slate"),
                    
                    fluidRow(column(width = 1, offset = 11,
                                    img(src = "02_logo.png", 
