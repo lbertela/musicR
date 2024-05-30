@@ -7,7 +7,7 @@ library(htmltools)
 library(shinyWidgets)
 library(shinyjs)
 
-setwd("script")
+setwd("app")
 file <- "data/01_inventaire.xlsx"
 
 # Get the data

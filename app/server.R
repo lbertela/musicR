@@ -15,48 +15,16 @@ server <- function(input, output, session) {
      
      output$musictable <- renderReactable(
           
-          reactable(data = data %>% 
-                         filter(year >= input$slider_date[1], 
-                                year <= input$slider_date[2],
-                                price >= input$slider_price[1],
-                                price <= input$slider_price[2],
-                                
-                                if(length(input$checkbox) == 2){
-                                     location %in% data$location  
-                                } else if(length(input$checkbox) == 0){
-                                     location %in% data$location
-                                } else if (length(input$checkbox) == 1 & input$checkbox == 2){
-                                     location == "RBR"  
-                                } else if(length(input$checkbox) == 1 & input$checkbox == 1){
-                                     location == "AB"  
-                                },
-                                
-                                if(is.null(input$filter_group)){
-                                     group %in% data$group
-                                } else {
-                                     group %in% input$filter_group},
-                                
-                                if(is.null(input$filter_artist)){
-                                     artist %in% data$artist
-                                } else {
-                                     artist %in% input$filter_artist},
-                                
-                                if(is.null(input$filter_album)){
-                                     album %in% data$album
-                                } else {
-                                     album %in% input$filter_album},
-                                
-                                if(is.null(input$filter_genre)){
-                                     genre %in% data$genre
-                                } else {
-                                     genre %in% input$filter_genre},
-                                
-                                if(is.null(input$filter_type)){
-                                     type %in% data$type
-                                } else {
-                                     type %in% input$filter_type}
-                         ),
-                    
+          reactable(data = filter_data(data = data,
+                                        filter_date = input$slider_date,
+                                        filter_price = input$slider_price,
+                                        filter_location = input$checkbox,
+                                        filter_group = input_filter_group,
+                                        filter_artist = input_filter_artis,
+                                        filter_album = input_filter_album,
+                                        filter_genre = input_filter_genre,
+                                        filter_type = input_filter_type),
+                         
                     defaultColDef = colDef(
                          vAlign = "center",
                          align = "left",
