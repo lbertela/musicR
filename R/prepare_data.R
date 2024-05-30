@@ -1,3 +1,19 @@
+#' Function to prepare the data to be displaysed with a reactable
+#'
+#' @param data Data to be prepare
+#' @param filter_date Shiny filter on date
+#' @param filter_price Shiny filter on price
+#' @param filter_location Shiny filter on location
+#' @param filter_group Shiny filter on group
+#' @param filter_artist Shiny filter on artist
+#' @param filter_album Shiny filter on album
+#' @param filter_genre Shiny filter on genre
+#' @param filter_type Shiny filter on type
+#'
+#' @return a dataframe filtered with the Shiny inputs
+#' @export
+#'
+#' @examples
 prepare_data <- function(data,
                         filter_date,
                         filter_price,
