@@ -4,8 +4,8 @@ server <- function(input, output, session) {
      options(reactable.language = reactableLang(
           pageInfo = "Album {rowStart} à {rowEnd} sur {rows}",
           pageSizeOptions = "Afficher {rows}",
-          pagePrevious = "\u276e",
-          pageNext = "\u276f",
+          pagePrevious = "/u276e",
+          pageNext = "/u276f",
           noData = "Aucun album trouvé")
      )
      
