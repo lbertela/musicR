@@ -26,41 +26,10 @@ ui <- navbarPage(
                         # Inputs: Select variables
                         sidebarPanel(
                              h3(strong("Filtres")),
-                             selectInput(inputId = "filter_group", 
-                                         label = "Sélectionner groupes", 
-                                         choices = sort(inventory$group), 
-                                         selected = NULL,
-                                         selectize = TRUE,
-                                         multiple = TRUE
-                             ),
-                             selectInput(inputId = "filter_album", 
-                                         label = "Sélectionner albums", 
-                                         choices = sort(inventory$album), 
-                                         selected = NULL,
-                                         selectize = TRUE,
-                                         multiple = TRUE
-                             ),
-                             selectInput(inputId = "filter_artist", 
-                                         label = "Sélectionner artistes", 
-                                         choices = sort(inventory$artist), 
-                                         selected = NULL,
-                                         selectize = TRUE,
-                                         multiple = TRUE
-                             ),
-                             selectInput(inputId = "filter_genre", 
-                                         label = "Sélectionner genres", 
-                                         choices = sort(inventory$genre), 
-                                         selected = NULL,
-                                         selectize = TRUE,
-                                         multiple = TRUE
-                             ),
-                             selectInput(inputId = "filter_type", 
-                                         label = "Sélectionner supports", 
-                                         choices = sort(inventory$type), 
-                                         selected = NULL,
-                                         selectize = TRUE,
-                                         multiple = TRUE
-                             ),
+
+                             lapply(c("group", "album", "artist", "genre", "type"), function(var) {
+                                  set_selectInput(inventory, var)
+                             }),
                              
                              br(),
                              
