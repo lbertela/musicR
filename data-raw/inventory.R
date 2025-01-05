@@ -4,7 +4,7 @@ Sys.setenv(LANG = "en")
 
 # Set Paths and files
 path_onedrive <- "C:/Users/ludov/OneDrive/Inventaire Vinyle et CD/"
-path_www <- "inst/app/www"
+path_www <- "inst/www"
 
 files <- list.files(path = path_onedrive)
 
