@@ -1,14 +1,9 @@
-library(rsconnect)
-library(htmltools)
-library(shinyWidgets)
-library(shinyjs)
-
 # Define UI
 ui <- navbarPage(
      strong("Music Center"),
      tabPanel("Tableau",
               fluidPage(
-                   useShinyjs(),
+                   shinyjs::useShinyjs(),
                    theme = shinythemes::shinytheme("slate"),
                    
                    fluidRow(column(width = 1, offset = 11,
