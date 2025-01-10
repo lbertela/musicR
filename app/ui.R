@@ -3,8 +3,6 @@ library(htmltools)
 library(shinyWidgets)
 library(shinyjs)
 
-devtools::load_all()
-
 # Define UI
 ui <- navbarPage(
      strong("Music Center"),

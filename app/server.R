@@ -45,17 +45,11 @@ server <- function(input, output, session) {
                                         footer = function(values) paste0(format(sum(values, na.rm = TRUE), big.mark = "'"), " CHF"),
                                         cell = function(value) {if (value == 0) "-" else paste0(value, " CHF")}),
                          type = colDef(name = "Support", width = 100), 
-                         cover = colDef(name = "Cover", align = "center",
-                                        width = 80,
-                                        cell = function(value,index){
-                                             htmltools::a(
-                                                  href=inventory$link[index],
-                                                  target="_blank",
-                                                  htmltools::img(src=sprintf("%s.jpg", value),
-                                                                 style = "height: 50px;",
-                                                                 alt = value))}),
-                         location = colDef(show = FALSE),
-                         link = colDef(show = FALSE)
+                         cover_html = colDef(name = "Cover", align = "center",
+                                             width = 80,
+                                             html = TRUE,
+                                             cell = JS("function(cellInfo) { return cellInfo.value; }")),
+                         location = colDef(show = FALSE)
                     ),
                     
                     defaultSorted = c("group", "album"),

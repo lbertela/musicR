@@ -11,10 +11,14 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
 Depends: 
-    R (>= 2.10),
+    R (>= 3.5),
     dplyr,
+    tidyr,
+    magrittr,
     reactable,
-    ggplot2
+    ggplot2,
+    shinyWidgets,
+    shinyjs
 LazyData: true
 Imports:
     dplyr,
@@ -22,4 +26,5 @@ Imports:
     shiny,
     reactable,
     tidyr,
-    shinyjs
+    shinyjs,
+    shinydashboard
