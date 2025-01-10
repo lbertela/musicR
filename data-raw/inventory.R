@@ -30,9 +30,16 @@ names(inventory) <- c("group", "album", "artist", "year", "genre",
 inventory <- inventory %>% 
      mutate(price = case_when(is.na(price) ~ 0,
                               price == "-" ~ 0,
-                              TRUE ~ as.numeric(price))) %>% 
+                              TRUE ~ as.numeric(price)), 
+            cover_html = ifelse(
+                 !is.na(link),
+                 paste0('<a href="', link, '" target="_blank">',
+                        '<img src="', cover, '.jpg" style="height: 50px;" alt="', cover, '"></a>'),
+                 paste0('<img src="', cover, '.jpg" style="height: 50px;" alt="', cover, '">'))) %>% 
      mutate(cover = gsub(".jpg", "", cover)) %>% 
-     relocate(group, cover)
+     relocate(group, cover_html) %>% 
+     arrange(group, album) %>% 
+     select(-cover, -link)
 
 # Save the inventory
 usethis::use_data(inventory, overwrite = TRUE)
