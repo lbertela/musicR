@@ -5,8 +5,6 @@
 #'
 #' @return plot of type ggplot
 #' @export
-#'
-#' @examples
 plot_freq_bar <- function(data, variable) {
      
      dt_plot <- data.frame(table(data[, variable])) %>% 
@@ -40,8 +38,6 @@ plot_freq_bar <- function(data, variable) {
 #'
 #' @return plot of type ggplot
 #' @export
-#'
-#' @examples
 plot_freq_hist <- function(data, variable) {
      
      dt_plot <- data.frame(var = data[, variable])

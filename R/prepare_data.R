@@ -12,8 +12,6 @@
 #'
 #' @return a dataframe filtered with the Shiny inputs
 #' @export
-#'
-#' @examples
 prepare_data <- function(data,
                          filter_date,
                          filter_price,
