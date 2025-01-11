@@ -1,4 +1,7 @@
 # Define UI
+library(shiny)
+library(reactable)
+
 ui <- navbarPage(
      strong("Music Center"),
      tabPanel("Tableau",
