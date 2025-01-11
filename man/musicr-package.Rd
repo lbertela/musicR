@@ -6,7 +6,7 @@
 \alias{musicr-package}
 \title{musicr: Create a Shiny App for a collection of vinyls and discs}
 \description{
-What the package does (one paragraph).
+This package includes data on music albums, which is stored in `.rda` files. These datasets are used in the app to provide information about music albums, such as their artist, group, genre, and price.
 }
 \author{
 \strong{Maintainer}: Ludovic Bertelà \email{ludovic.bertela@hotmail.com} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
