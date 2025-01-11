@@ -29,6 +29,7 @@
 #' @importFrom reactable reactableLang
 #' @importFrom reactable reactableOutput
 #' @importFrom reactable renderReactable
+#' @importFrom reactablefmtr slate
 #' @importFrom shiny actionButton
 #' @importFrom shiny br
 #' @importFrom shiny checkboxGroupInput

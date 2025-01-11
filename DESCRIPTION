@@ -1,6 +1,6 @@
 Package: musicr
 Title: Create a Shiny App for a collection of vinyls and discs
-Version: 0.0.0.9001
+Version: 0.0.0.9002
 Authors@R: 
     person("Ludovic", "Bertelà", , "ludovic.bertela@hotmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
@@ -20,9 +20,11 @@ Imports:
     ggplot2,
     shiny,
     reactable,
+    reactablefmtr,
     tidyr,
     shinyjs,
     shinydashboard,
-    magrittr
+    magrittr,
+    reactablefmtr
 Depends: 
     R (>= 3.5)
