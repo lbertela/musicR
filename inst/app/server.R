@@ -1,8 +1,5 @@
 # Define server
 inventory <- readRDS(system.file("app", "data", "inventory.rds", package = "musicr"))
-max_price <- max(na.omit(inventory$price))
-min_year <- min(inventory$year, na.rm = TRUE)
-max_year <- max(inventory$year, na.rm = TRUE)
 
 table_theme <- reactablefmtr::slate(font_color = "#FFFFFF",
                                     header_font_color = "#FFFFFF",
