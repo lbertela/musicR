@@ -16,15 +16,12 @@ RoxygenNote: 7.3.2
 LazyData: true
 Imports:
     dplyr,
-    tidyr,
     ggplot2,
+    forcats,
     shiny,
     reactable,
     reactablefmtr,
-    tidyr,
     shinyjs,
-    shinydashboard,
-    magrittr,
-    reactablefmtr
+    magrittr
 Depends: 
     R (>= 3.5)
