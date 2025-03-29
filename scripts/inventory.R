@@ -1,6 +1,8 @@
-## code to prepare `inventory` dataset goes here
-# Set Paths and files
-path_onedrive <- "C:/Users/ludov/OneDrive/Inventaire Vinyle et CD/"
+# code to prepare `inventory` dataset  -----------------------------------------
+
+# Path and files
+path_onedrive <- "C:/Users/ludov/OneDrive/Inventaire Vinyle et CD"
+path_data <- "inst/app/data"
 path_www <- "inst/app/www"
 
 files <- list.files(path = path_onedrive)
@@ -10,7 +12,7 @@ jpg_files <- files[grepl(".jpg", files)]
 xlsx_file <- files[grepl(".xlsx", files)]
 
 # Save each .jpg file into "www"
-for(file in jpg_files) {
+for (file in jpg_files) {
      file.copy(from = file.path(path_onedrive, file),
                to = path_www,
                overwrite = TRUE)
@@ -25,6 +27,7 @@ names(inventory) <- c("group", "album", "artist", "year", "genre",
 
 # Prepare inventory
 inventory <- inventory %>% 
+     filter(!is.na(group)) %>% 
      mutate(price = case_when(is.na(price) ~ 0,
                               price == "-" ~ 0,
                               TRUE ~ as.numeric(price)), 
@@ -39,4 +42,4 @@ inventory <- inventory %>%
      select(-cover, -link)
 
 # Save the inventory
-usethis::use_data(inventory, overwrite = TRUE)
+saveRDS(inventory, file.path(path_data, "inventory.rds"))
