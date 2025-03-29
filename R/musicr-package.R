@@ -52,5 +52,6 @@
 #' @importFrom shiny tabPanel
 #' @importFrom shiny titlePanel
 #' @importFrom shinyjs useShinyjs
+#' @importFrom stats var
 ## usethis namespace: end
 NULL
