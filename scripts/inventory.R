@@ -1,5 +1,5 @@
 # code to prepare `inventory` dataset  -----------------------------------------
-
+library(dplyr)
 # Path and files
 path_onedrive <- "C:/Users/ludov/OneDrive/Inventaire Vinyle et CD"
 path_data <- "inst/app/data"
