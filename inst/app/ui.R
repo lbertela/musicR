@@ -10,20 +10,25 @@ ui <- navbarPage(
                    shinyjs::useShinyjs(),
                    theme = shinythemes::shinytheme("slate"),
                    
-                   fluidRow(column(width = 1, offset = 11,
-                                   img(src = "02_logo.png", 
-                                       height = 130, 
-                                       width = 195, 
-                                       style = "left: -70px; top: 13px; position: absolute;"))),
+                   fluidRow(column(
+                        width = 1, 
+                        offset = 11,
+                        img(src = "02_logo.png", 
+                            height = 130, 
+                            width = 195, 
+                            style = "left: -70px; top: 13px; position: absolute;")
+                   )),
                    
-                   titlePanel(title = div(h1(strong("Inventaire")), style = "color:white"),
-                              windowTitle = "Music Center"),
+                   titlePanel(
+                        title = div(h1(strong("Inventaire")), style = "color:white"),
+                        windowTitle = "Music Center"
+                   ),
                    
                    sidebarLayout(
                         # Inputs: Select variables
                         sidebarPanel(
                              h3(strong("Filtres")),
-
+                             
                              lapply(c("group", "album", "artist", "genre", "type"), function(var) {
                                   set_selectInput(inventory, var)
                              }),
@@ -32,7 +37,7 @@ ui <- navbarPage(
                              
                              sliderInput(
                                   inputId = "slider_date",
-                                  label = "Sélectionner années:", 
+                                  label = "S\u00e9lectionner ann\u00e9es:", 
                                   min = min_year, 
                                   max = max_year,
                                   value = c(min_year, max_year),
@@ -41,14 +46,14 @@ ui <- navbarPage(
                              ),
                              sliderInput(
                                   inputId = "slider_price",
-                                  label = "Sélectionner prix:", 
+                                  label = "S\u00e9lectionner prix:", 
                                   min = 0, 
                                   max = max_price,
                                   value = c(0, max_price),
                                   step = 1
                              ), br(), 
                              
-                             checkboxGroupInput("checkbox", "Propriété",
+                             checkboxGroupInput("checkbox", "Propri\u00e9t\u00e9",
                                                 choices = list("Aliano" = 1,
                                                                "Rita" = 2),
                                                 selected = c(1, 2),
@@ -56,7 +61,7 @@ ui <- navbarPage(
                              
                              br(), br(),
                              
-                             actionButton("resetAll", "Réinitialiser Filtres"),
+                             actionButton("resetAll", "R\u00e9initialiser Filtres"),
                              
                         ),
                         # Output
