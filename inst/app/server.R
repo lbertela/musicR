@@ -27,16 +27,16 @@ server <- function(input, output, session) {
      
      output$musictable <- renderReactable(
           
-          reactable(data = prepare_data(data = inventory,
-                                        filter_date = input$slider_date,
-                                        filter_price = input$slider_price,
-                                        filter_location = input$checkbox,
-                                        filter_group = input$filter_group,
-                                        filter_artist = input$filter_artist,
-                                        filter_album = input$filter_album,
-                                        filter_genre = input$filter_genre,
-                                        filter_type = input$filter_type),
-                         
+          reactable(data = musicr::prepare_data(data = inventory,
+                                                filter_date = input$slider_date,
+                                                filter_price = input$slider_price,
+                                                filter_location = input$checkbox,
+                                                filter_group = input$filter_group,
+                                                filter_artist = input$filter_artist,
+                                                filter_album = input$filter_album,
+                                                filter_genre = input$filter_genre,
+                                                filter_type = input$filter_type),
+                    
                     defaultColDef = colDef(
                          vAlign = "center",
                          align = "left",
@@ -83,19 +83,19 @@ server <- function(input, output, session) {
      )
      
      output$histo1 <- renderPlot({
-          plot_freq_bar(data = inventory, variable = "type")
+          musicr::plot_freq_bar(data = inventory, variable = "type")
      }, width = 1000, height = 480, res = 150, bg="transparent")
      
      output$histo2 <- renderPlot({
-          plot_freq_hist(data = inventory, variable = "price")
+          musicr::plot_freq_hist(data = inventory, variable = "price")
      }, width = 500, height = 480, res = 150, bg="transparent")
      
      output$histo3 <- renderPlot({
-          plot_freq_bar(data = inventory, variable = "genre")
+          musicr::plot_freq_bar(data = inventory, variable = "genre")
      }, width = 1000, height = 480, res = 150, bg="transparent")
      
      output$histo4 <- renderPlot({
-          plot_freq_hist(data = inventory, variable = "year")
+          musicr::plot_freq_hist(data = inventory, variable = "year")
      }, width = 500, height = 480, res = 150, bg="transparent")
      
 }

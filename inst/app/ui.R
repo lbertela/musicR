@@ -1,7 +1,6 @@
 # Define UI
 library(shiny)
 library(reactable)
-devtools::load_all()
 
 inventory <- readRDS(system.file("app", "data", "inventory.rds", package = "musicr"))
 max_price <- max(na.omit(inventory$price))
@@ -42,7 +41,7 @@ ui <- navbarPage(
                              h3(strong("Filtres")),
                              
                              lapply(c("group", "album", "artist", "genre", "type"), function(var) {
-                                  set_selectInput(inventory, var)
+                                  musicr::set_selectInput(inventory, var)
                              }),
                              
                              br(),

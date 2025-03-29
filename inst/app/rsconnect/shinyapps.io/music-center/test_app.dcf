@@ -5,7 +5,7 @@ account: music-center
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 14372960
-bundleId: 10023410
+bundleId:
 url: https://music-center.shinyapps.io/test_app/
 version: 1
 asMultiple: FALSE
