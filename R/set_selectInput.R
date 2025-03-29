@@ -7,7 +7,7 @@
 #' @export
 set_selectInput <- function(data, variable) {
      selectInput(inputId = paste0("filter_", variable), 
-                 label = paste0("Sélectionner ", variable), 
+                 label = paste0("S\u00e9lectionner ", variable), 
                  choices = sort(unique(data[, variable])), 
                  multiple = TRUE
      )

@@ -1,6 +1,7 @@
 # Define UI
 library(shiny)
 library(reactable)
+devtools::load_all()
 
 ui <- navbarPage(
      strong("Music Center"),
