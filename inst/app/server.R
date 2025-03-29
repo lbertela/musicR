@@ -10,7 +10,7 @@ server <- function(input, output, session) {
      )
      
      observeEvent(input$resetAll, {
-          reset("")
+          shinyjs::reset("")
      })
      
      output$musictable <- renderReactable(
