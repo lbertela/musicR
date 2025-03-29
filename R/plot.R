@@ -24,8 +24,7 @@ plot_freq_bar <- function(data, variable) {
                 panel.grid = element_line(color = "darkgrey",
                                           linewidth = 0.1),
                 panel.border = element_rect(fill = "transparent",
-                                            color = "darkgrey")
-          )
+                                            color = "darkgrey"))
      
      return(p)
      
@@ -56,8 +55,7 @@ plot_freq_hist <- function(data, variable) {
                 panel.grid = element_line(color = "darkgrey",
                                           linewidth = 0.1),
                 panel.border = element_rect(fill = "transparent",
-                                            color = "darkgrey")
-          )
+                                            color = "darkgrey"))
      
      return(p)
      

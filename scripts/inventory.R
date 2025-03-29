@@ -1,10 +1,10 @@
-# code to prepare `inventory` dataset  -----------------------------------------
+rm(list = ls())
 library(dplyr)
+
 # Path and files
 path_onedrive <- "C:/Users/ludov/OneDrive/Inventaire Vinyle et CD"
 path_data <- "inst/app/data"
 path_www <- "inst/app/www"
-
 files <- list.files(path = path_onedrive)
 
 # Identify .jpg and .xlsx files
@@ -13,8 +13,7 @@ xlsx_file <- files[grepl(".xlsx", files)]
 
 # Save each .jpg file into "www"
 for (file in jpg_files) {
-     file.copy(from = file.path(path_onedrive, file),
-               to = path_www,
+     file.copy(from = file.path(path_onedrive, file), to = path_www,
                overwrite = TRUE)
 }
 
