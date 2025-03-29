@@ -2,7 +2,7 @@
 #'
 #' @description This function launches the Shiny app included in the `musicr`.
 #' @export
-runApp <- function() {
+myApp <- function() {
      # Locate the app directory relative to the package
      app_dir <- system.file("app", package = "musicr")
      
