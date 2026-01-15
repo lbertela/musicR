@@ -22,7 +22,9 @@ plot_freq_bar <- function(data, variable) {
                 axis.ticks.x = element_blank(),
                 axis.ticks.y = element_blank(),
                 panel.grid = element_line(color = "darkgrey", linewidth = 0.1),
-                panel.border = element_rect(fill = "transparent", color = "darkgrey"))
+                panel.border = element_rect(color = "darkgrey"),
+                plot.background = element_rect(fill = NA, color = NA),
+                panel.background = element_rect(fill = NA, color = NA))
      
      return(p)
      
@@ -51,7 +53,9 @@ plot_freq_hist <- function(data, variable) {
                 axis.ticks.x = element_blank(),
                 axis.ticks.y = element_blank(),
                 panel.grid = element_line(color = "darkgrey", linewidth = 0.1),
-                panel.border = element_rect(fill = "transparent", color = "darkgrey"))
+                panel.border = element_rect(color = "darkgrey"),
+                plot.background = element_rect(fill = NA, color = NA),
+                panel.background = element_rect(fill = NA, color = NA))
      
      return(p)
      
