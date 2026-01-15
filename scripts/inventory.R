@@ -23,6 +23,7 @@ inventory <- openxlsx::read.xlsx(file.path(path_onedrive, xlsx_file),
 
 names(inventory) <- c("group", "album", "artist", "year", "genre", 
                       "price", "type", "cover", "location", "link")
+inventory <- inventory[, 1:10]
 
 # Prepare inventory
 inventory <- inventory %>% 
