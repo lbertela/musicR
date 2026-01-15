@@ -1,6 +1,6 @@
 Package: musicr
 Title: Create a Shiny App for a collection of vinyls and discs
-Version: 0.0.0.9004
+Version: 0.0.0.9005
 Authors@R: 
     person("Ludovic", "Bertelà", , "ludovic.bertela@hotmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
