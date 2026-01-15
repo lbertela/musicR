@@ -1,5 +1,5 @@
 # Define server
-inventory <- readRDS(system.file("app", "data", "inventory.rds", package = "musicr"))
+inventory <- readRDS(system.file("app/data/inventory.rds", package = "musicr"))
 
 table_theme <- reactablefmtr::slate(font_color = "#FFFFFF",
                                     header_font_color = "#FFFFFF",
