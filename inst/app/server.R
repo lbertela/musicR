@@ -59,7 +59,10 @@ server <- function(input, output, session) {
                                              width = 80,
                                              html = TRUE,
                                              cell = JS("function(cellInfo) { return cellInfo.value; }")),
-                         location = colDef(show = FALSE)
+                         location = colDef(show = FALSE),
+                         cover = colDef(show = FALSE),
+                         link = colDef(show = FALSE)
+                         
                     ),
                     
                     striped = TRUE,

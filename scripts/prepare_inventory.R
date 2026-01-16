@@ -38,8 +38,7 @@ inventory <- inventory %>%
                  paste0('<img src="', cover, '.jpg" style="height: 50px;" alt="', cover, '">'))) %>% 
      mutate(cover = gsub(".jpg", "", cover)) %>% 
      relocate(group, cover_html) %>% 
-     arrange(group, album) %>% 
-     select(-cover, -link)
+     arrange(group, album)
 
 # Save the inventory
 saveRDS(inventory, file.path(path_data, "inventory.rds"))
