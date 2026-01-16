@@ -13,7 +13,8 @@ prepare_data(
   filter_artist,
   filter_album,
   filter_genre,
-  filter_type
+  filter_type,
+  global_search
 )
 }
 \arguments{
@@ -34,6 +35,8 @@ prepare_data(
 \item{filter_genre}{Shiny filter on genre}
 
 \item{filter_type}{Shiny filter on type}
+
+\item{global_search}{Shiny filter on global search}
 }
 \value{
 a dataframe filtered with the Shiny inputs

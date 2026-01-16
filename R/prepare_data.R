@@ -9,6 +9,7 @@
 #' @param filter_album Shiny filter on album
 #' @param filter_genre Shiny filter on genre
 #' @param filter_type Shiny filter on type
+#' @param global_search Shiny filter on global search
 #'
 #' @return a dataframe filtered with the Shiny inputs
 #' @export
