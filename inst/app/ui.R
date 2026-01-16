@@ -1,6 +1,7 @@
 # Define UI
 library(shiny)
 library(reactable)
+library(dplyr)
 
 inventory <- readRDS(system.file("app/data/inventory.rds", package = "musicr"))
 max_price <- max(na.omit(inventory$price))
@@ -8,7 +9,18 @@ min_year <- min(inventory$year, na.rm = TRUE)
 max_year <- max(inventory$year, na.rm = TRUE)
 
 ui <- navbarPage(
-     strong("Music Center"),
+     title = strong("Music Center"),
+     # Barre de recherche
+     header = tags$div(
+          style = "position: absolute; right: 30px; top: 6px; width: 250px; z-index: 1000;",
+          textInput(
+               "global_search",
+               label = NULL,
+               placeholder = "\U0001F50D Rechercher...",
+               width = "100%"
+          )
+     ),
+     # Onglet Tableau
      tabPanel("Tableau",
               fluidPage(
                    shinyjs::useShinyjs(),

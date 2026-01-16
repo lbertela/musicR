@@ -20,7 +20,8 @@ prepare_data <- function(data,
                          filter_artist,
                          filter_album,
                          filter_genre,
-                         filter_type) {
+                         filter_type,
+                         global_search) {
      
      df <- data %>% 
           filter(year >= filter_date[1] & year <= filter_date[2],
@@ -40,6 +41,16 @@ prepare_data <- function(data,
                  if(is.null(filter_genre)) TRUE else genre %in% filter_genre,
                  if(is.null(filter_type)) TRUE else type %in% filter_type) %>% 
           arrange(group, album)
+     
+     # Filtre global
+     if (!is.null(global_search) && global_search != "") {
+          
+          pattern <- stringr::str_to_lower(global_search)
+          cols_to_search <- setdiff(names(df), c("cover_html", "location"))
+          
+          df <- df %>%
+               filter(rowSums(across(all_of(cols_to_search), ~ stringr::str_detect(stringr::str_to_lower(as.character(.)), stringr::fixed(pattern)))) > 0)
+     }
      
      return(df)
 }

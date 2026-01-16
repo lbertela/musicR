@@ -32,7 +32,8 @@ server <- function(input, output, session) {
                                                 filter_artist = input$filter_artist,
                                                 filter_album = input$filter_album,
                                                 filter_genre = input$filter_genre,
-                                                filter_type = input$filter_type),
+                                                filter_type = input$filter_type,
+                                                global_search = input$global_search),
                     
                     defaultColDef = colDef(
                          vAlign = "center",
