@@ -90,7 +90,7 @@ ui <- navbarPage(
                                        style = "width:200px; background-color:#34495e; padding:13px; border-radius:10px; text-align:center; color:white; height:100px;",
                                        icon("users", style = "font-size:20px; margin-bottom:10px;"),
                                        div(paste0(length(unique(inventory$group))), style = "font-size:20px; font-weight:bold;"),
-                                       div("Groupes uniques")
+                                       div("Groupes uniques", style = "font-size:17px;")
                                   ),
                                   
                                   # Card 2
@@ -98,7 +98,7 @@ ui <- navbarPage(
                                        style = "width:200px; background-color:#5D6DFF; padding:13px; border-radius:10px; text-align:center; color:white; height:100px;",
                                        icon("compact-disc", style = "font-size:20px; margin-bottom:10px;"),
                                        div(paste0(length(unique(inventory$album))), style = "font-size:20px; font-weight:bold;"),
-                                       div("Albums uniques")
+                                       div("Albums uniques", style = "font-size:17px;")
                                   ),
                                   
                                   # Card 3
@@ -106,7 +106,7 @@ ui <- navbarPage(
                                        style = "width:200px; background-color:#1ABC9C; padding:13px; border-radius:10px; text-align:center; color:white; height:100px;",
                                        icon("hand-holding-dollar", style = "font-size:20px; margin-bottom:10px;"),
                                        div(paste0(format(sum(inventory$price, na.rm = TRUE), big.mark = "'"), " CHF"), style = "font-size:20px; font-weight:bold;"),
-                                       div("Valeur totale")
+                                       div("Valeur totale", style = "font-size:17px;")
                                   )
                              ),
                              
