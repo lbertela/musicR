@@ -38,7 +38,8 @@ prepare_data <- function(data,
                  if(is.null(filter_artist)) TRUE else artist %in% filter_artist,
                  if(is.null(filter_album)) TRUE else album %in% filter_album,
                  if(is.null(filter_genre)) TRUE else genre %in% filter_genre,
-                 if(is.null(filter_type)) TRUE else type %in% filter_type)
+                 if(is.null(filter_type)) TRUE else type %in% filter_type) %>% 
+          arrange(group, album)
      
      return(df)
 }

@@ -61,7 +61,6 @@ server <- function(input, output, session) {
                          location = colDef(show = FALSE)
                     ),
                     
-                    defaultSorted = c("group", "album"),
                     striped = TRUE,
                     compact = TRUE,
                     wrap = TRUE,
