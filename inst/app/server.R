@@ -22,18 +22,57 @@ server <- function(input, output, session) {
           shinyjs::reset("")
      })
      
+     filtered_inventory <- reactive({
+          musicr::prepare_data(
+               data = inventory,
+               filter_date     = input$slider_date,
+               filter_price    = input$slider_price,
+               filter_location = input$checkbox,
+               filter_group    = input$filter_group,
+               filter_artist   = input$filter_artist,
+               filter_album    = input$filter_album,
+               filter_genre    = input$filter_genre,
+               filter_type     = input$filter_type,
+               global_search   = input$global_search
+          )
+     })
+     
+     row_details <- function(index) {
+          
+          cover <- paste0(filtered_inventory()[index, ]$cover, ".jpg")
+          link <- filtered_inventory()[index, ]$link
+          album <- filtered_inventory()[index, ]$album
+          artist <- filtered_inventory()[index, ]$artist
+          year <- filtered_inventory()[index, ]$year
+          
+          img_tag <- tags$img(src = cover, height = "200px", style = "border-radius:5px;")
+          
+          spotify_logo_img <- tags$img(
+               src = "https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg",
+               height = "30px",
+               style = "margin-top: -10px; margin-left: 15px;"
+          )
+          
+          if (!is.na(link)) {
+               spotify_logo <- tags$a(href = link, target = "_blank", spotify_logo_img)
+          } else {
+               spotify_logo <- spotify_logo_img
+          }
+          
+          text_div <- div(
+               style = "margin-left: 20px",
+               div(album, style = "font-size:50px; color:white; font-weight:bold; margin-bottom:5px;", spotify_logo),
+               div(paste(artist, "\u2022", year), style = "font-size:18px; color: #cccccc")
+          )
+          
+          div(style = "padding: 10px; background-color: #2f3542; display:flex; justify-content:left;",
+              img_tag,
+              text_div)
+     }
+
      output$musictable <- renderReactable(
           
-          reactable(data = musicr::prepare_data(data = inventory,
-                                                filter_date = input$slider_date,
-                                                filter_price = input$slider_price,
-                                                filter_location = input$checkbox,
-                                                filter_group = input$filter_group,
-                                                filter_artist = input$filter_artist,
-                                                filter_album = input$filter_album,
-                                                filter_genre = input$filter_genre,
-                                                filter_type = input$filter_type,
-                                                global_search = input$global_search),
+          reactable(data = filtered_inventory(),
                     
                     defaultColDef = colDef(
                          vAlign = "center",
@@ -78,7 +117,10 @@ server <- function(input, output, session) {
                     theme = table_theme,
                     height = 735,
                     resizable = TRUE,
-                    highlight = TRUE
+                    highlight = TRUE,
+                    onClick = "expand",
+                    rowStyle = list(cursor = "pointer"),
+                    details = row_details
           )
      )
      
