@@ -7,6 +7,7 @@ table_theme <- reactablefmtr::slate(font_color = "#FFFFFF",
                                     centered = TRUE)
 table_theme[["inputStyle"]]$color <- "#000000"
 table_theme[["highlightColor"]] <- "#808080"
+table_theme[["headerStyle"]]$backgroundColor <- "#34495e"
 
 server <- function(input, output, session) {
      
