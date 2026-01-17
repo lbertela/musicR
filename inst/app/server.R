@@ -109,7 +109,7 @@ server <- function(input, output, session) {
                     compact = TRUE,
                     wrap = TRUE,
                     rownames = FALSE,
-                    filterable = TRUE,
+                    filterable = FALSE,
                     searchable = FALSE,
                     defaultPageSize = 10,
                     showSortIcon = TRUE,
