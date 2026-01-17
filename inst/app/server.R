@@ -56,7 +56,7 @@ server <- function(input, output, session) {
           if (!is.na(link)) {
                spotify_logo <- tags$a(href = link, target = "_blank", spotify_logo_img)
           } else {
-               spotify_logo <- spotify_logo_img
+               spotify_logo <- ""
           }
           
           text_div <- div(
