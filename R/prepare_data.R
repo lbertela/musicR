@@ -44,13 +44,15 @@ prepare_data <- function(data,
           arrange(group, album)
      
      # Filtre global
-     if (!is.null(global_search)  && global_search != "") {
+     if (!is.null(global_search) && global_search != "") {
           
           pattern <- stringr::str_to_lower(global_search)
           cols_to_search <- setdiff(names(df), c("cover_html", "location", "link", "cover"))
           
           df <- df %>%
-               filter(rowSums(across(all_of(cols_to_search), ~ stringr::str_detect(stringr::str_to_lower(as.character(.)), stringr::fixed(pattern)))) > 0)
+               filter(if_any(all_of(cols_to_search), 
+                             ~ stringr::str_detect(stringr::str_to_lower(.x), pattern)
+               ))
      }
      
      return(df)
