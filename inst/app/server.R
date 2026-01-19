@@ -45,6 +45,7 @@ server <- function(input, output, session) {
           cover <- paste0(filtered_inventory()[index, ]$cover, ".jpg")
           link <- filtered_inventory()[index, ]$link
           album <- filtered_inventory()[index, ]$album
+          music <- filtered_inventory()[index, ]$music
           artist <- filtered_inventory()[index, ]$artist
           year <- filtered_inventory()[index, ]$year
           
@@ -52,8 +53,8 @@ server <- function(input, output, session) {
           
           spotify_logo_img <- tags$img(
                src = "https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg",
-               height = "30px",
-               style = "margin-top: -10px; margin-left: 15px;"
+               height = "25px",
+               style = "margin-top: -3px; margin-left: 15px;"
           )
           
           if (!is.na(link)) {
@@ -64,7 +65,8 @@ server <- function(input, output, session) {
           
           text_div <- div(
                style = "margin-left: 20px",
-               div(album, style = "font-size:50px; color:white; font-weight:bold; margin-bottom:5px;", spotify_logo),
+               div(album, style = "font-size:50px; color:white; font-weight:bold; margin-bottom:5px;"),
+               div(music, style = "font-size:25px; color:white; font-weight:bold; margin-bottom:5px;", spotify_logo),
                div(paste(artist, "\u2022", year), style = "font-size:18px; color: #cccccc")
           )
           
@@ -103,7 +105,8 @@ server <- function(input, output, session) {
                                              cell = JS("function(cellInfo) { return cellInfo.value; }")),
                          location = colDef(show = FALSE),
                          cover = colDef(show = FALSE),
-                         link = colDef(show = FALSE)
+                         link = colDef(show = FALSE),
+                         music = colDef(show = FALSE)
                          
                     ),
                     

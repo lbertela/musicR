@@ -21,9 +21,9 @@ for (file in jpg_files) {
 inventory <- openxlsx::read.xlsx(file.path(path_onedrive, xlsx_file), 
                                  startRow = 2, rowNames = FALSE)
 
-names(inventory) <- c("group", "album", "artist", "year", "genre", 
+names(inventory) <- c("group", "album", "music", "artist", "year", "genre", 
                       "price", "type", "cover", "location", "link")
-inventory <- inventory[, 1:10]
+inventory <- inventory[, 1:11]
 
 # Prepare inventory
 inventory <- inventory %>% 
