@@ -5,9 +5,11 @@ table_theme <- reactablefmtr::slate(font_color = "#FFFFFF",
                                     header_font_color = "#FFFFFF",
                                     header_font_size = 20,
                                     centered = TRUE)
-table_theme[["inputStyle"]]$color <- "#000000"
-table_theme[["highlightColor"]] <- "#808080"
-table_theme[["headerStyle"]]$backgroundColor <- "#34495e"
+table_theme$inputStyle$color <- "#000000"
+table_theme$highlightColor <- "#808080"
+table_theme$headerStyle$backgroundColor <- "#34495e"
+table_theme$headerStyle$`&:hover[aria-sort]`$backgroundColor <- "#243342"
+table_theme$headerStyle$transitionDuration <- "0s"
 
 server <- function(input, output, session) {
      
