@@ -1,3 +1,4 @@
+.rs.restartR()
 if (print(requireNamespace("musicr", quietly = TRUE))) {
      remove.packages("musicr")
 }
