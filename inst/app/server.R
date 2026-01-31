@@ -96,7 +96,7 @@ server <- function(input, output, session) {
                          year = colDef(name = "Année", width = 100), 
                          genre = colDef(name = "Genre", width = 100), 
                          price = colDef(name = "Prix", width = 100,
-                                        footer = function(values) paste0(format(sum(values, na.rm = TRUE), big.mark = "'"), " CHF"),
+                                        footer = function(values) paste0(format(round(sum(values, na.rm = TRUE), digits = 0), big.mark = "'"), " CHF"),
                                         cell = function(value) {if (value == 0) "-" else paste0(value, " CHF")}),
                          type = colDef(name = "Support", width = 100), 
                          cover_html = colDef(name = "Cover", align = "center",

@@ -105,7 +105,7 @@ ui <- navbarPage(
                                   div(
                                        style = "width:200px; background-color:#1ABC9C; padding:13px; border-radius:10px; text-align:center; color:white; height:100px;",
                                        icon("hand-holding-dollar", style = "font-size:20px; margin-bottom:10px;"),
-                                       div(paste0(format(sum(inventory$price, na.rm = TRUE), big.mark = "'"), " CHF"), style = "font-size:20px; font-weight:bold;"),
+                                       div(paste0(format(round(sum(inventory$price, na.rm = TRUE), digits = 0), big.mark = "'"), " CHF"), style = "font-size:20px; font-weight:bold;"),
                                        div("Valeur totale", style = "font-size:17px;")
                                   )
                              ),
