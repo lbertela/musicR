@@ -127,6 +127,7 @@ ui <- navbarPage(
                    
                    fluidRow(
                         column(width = 7, align = "center", plotOutput(outputId = "histo3")),
-                        column(width = 5, align = "center", plotOutput(outputId = "histo4")))),
+                        column(width = 5, align = "center", plotOutput(outputId = "histo4")))
+              )
      )
 )
